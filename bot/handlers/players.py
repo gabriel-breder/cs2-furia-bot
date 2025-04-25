@@ -2,7 +2,6 @@ from telebot.types import Message
 from dotenv import load_dotenv
 import requests
 import os
-import json
 
 load_dotenv()
 
