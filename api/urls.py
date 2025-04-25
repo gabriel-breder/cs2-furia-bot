@@ -8,4 +8,5 @@ urlpatterns = [
     path('get_teams/', team.get_teams, name='get_teams'),
     path('add_team/', team.add_team, name='add_team'),
     path('get_matches_results/', match.get_matches_results, name='get_matches_results'),
+    path('get_next_matches/', match.get_next_matches, name='get_next_matches'),
 ] 
