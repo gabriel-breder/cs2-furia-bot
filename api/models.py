@@ -1,13 +1,12 @@
 from django.db import models
 
-class SocialMedia(models.Model):
-    name = models.CharField(max_length=100)
-    url = models.URLField()
-
 class Player(models.Model):
     name = models.CharField(max_length=100)
     nickname = models.CharField(max_length=100, unique=True)
-    social_media = models.ManyToManyField(SocialMedia, blank=True)
+    team = models.ForeignKey('Team', on_delete=models.CASCADE, related_name='players')
+    instagram = models.URLField(blank=True, null=True)
+    twitch = models.URLField(blank=True, null=True)
+
 
 class News(models.Model):
     title = models.CharField(max_length=200)
@@ -16,8 +15,6 @@ class News(models.Model):
 
 class Team(models.Model):
     name = models.CharField(max_length=100)
-    players = models.ManyToManyField(Player, blank=True)
-    social_media = models.ManyToManyField(SocialMedia, blank=True)
 
 class Match(models.Model):
     date = models.DateTimeField()
