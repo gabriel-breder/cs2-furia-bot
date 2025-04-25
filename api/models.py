@@ -18,6 +18,8 @@ class Team(models.Model):
 
 class Match(models.Model):
     date = models.DateTimeField()
-    opponent = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='matches')
-    result = models.CharField(max_length=50, blank=True, null=True)
-    link = models.URLField(blank=True, null=True)
+    teamA = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='teamA_matches')
+    teamB = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='teamB_matches')
+    teamA_score = models.IntegerField()
+    teamB_score = models.IntegerField()
+    match_details = models.URLField(blank=True, null=True)
