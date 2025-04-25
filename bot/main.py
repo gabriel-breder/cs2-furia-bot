@@ -1,18 +1,22 @@
 import os
 from dotenv import load_dotenv
 import telebot
+from handlers.start import start_handler
+from handlers.players import get_players_handler
 
 load_dotenv()
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 bot = telebot.TeleBot(BOT_TOKEN)
 
-@bot.message_handler(commands=['start'])
-def start_message(message):
-    bot.send_message(message.chat.id, "Olá! Eu sou o bot do Telegram.")
+def register_handlers():
+    bot.register_message_handler(start_handler(bot), commands=['start'])
+    bot.register_message_handler(get_players_handler(bot), commands=['players'])
 
-@bot.message_handler(func=lambda msg: True)
-def echo_all(message):
-    bot.reply_to(message, message.text)
+register_handlers()
 
-bot.infinity_polling()
+def run_bot():
+    print("Bot is running...")
+    bot.infinity_polling()
+
+run_bot()
