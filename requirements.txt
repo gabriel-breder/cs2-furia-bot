@@ -1,0 +1,5 @@
+aiogram
+dotenv
+requests
+django
+httpx
