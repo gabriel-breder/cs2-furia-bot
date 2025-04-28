@@ -1,4 +1,4 @@
-from telebot.types import Message
+from aiogram import types
 from dotenv import load_dotenv
 import requests
 import os
@@ -20,20 +20,19 @@ def get_results():
         print(f"Error: {response.status_code}")
         return None
 
-def get_matches_handler(bot):
-    
-    def get_prev_matches_results(message: Message):
-        chat_id = message.chat.id
-        bot.send_message(chat_id, "Carregando resultados...")
+async def get_matches_handler(message: types.Message):
+    await message.answer("Carregando resultados...")
 
-        matches = get_results()
+    matches = get_results()
 
-        response = "\n\n".join(
-            f"{replace_dots(match['teamA'])} vs {replace_dots(match['teamB'])}\n"
-            f"{match['teamA_score']} x {match['teamB_score']}\n"
-            f"{match['tournament']}"
-            for match in matches['matches']
-        )
+    if matches is None:
+        await message.answer("Erro ao carregar os resultados.")
+        return
 
-        bot.send_message(chat_id, response, parse_mode="MarkdownV2")
-    return get_prev_matches_results
+    response = "\n\n".join(
+        f"{replace_dots(match['teamA'])} {match['teamA_score']} vs {match['teamB_score']} {replace_dots(match['teamB'])}\n"
+        f"{match['tournament']}"
+        for match in matches['matches']
+    )
+
+    await message.answer(response, parse_mode="MarkdownV2")

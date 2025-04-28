@@ -1,11 +1,13 @@
-from telebot.types import Message
+from aiogram import types
 
-def start_handler(bot):
+async def start_handler(message: types.Message):
+    user = message.from_user
 
-    def response(first_name):
-       return f"Olá, {first_name}! \n Use /players para ver a lista de jogadores da Furia \n Use /matches para ver os resultados das últimas partidas"
+    response = (
+        f"Olá, {user.first_name}!\n"
+        "Use /players para ver a lista de jogadores da Furia\n"
+        "Use /matches para ver os resultados das últimas partidas\n"
+        "Use /help para ver os comandos disponíveis"
+    )
 
-    def start(message: Message):
-        user = message.from_user
-        bot.send_message(message.chat.id, response(user.first_name))
-    return start
+    await message.answer(response)

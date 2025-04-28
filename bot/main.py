@@ -1,24 +1,27 @@
-import os
-from dotenv import load_dotenv
-import telebot
+from aiogram import Bot, Dispatcher
+from aiogram.filters import Command
 from handlers.start import start_handler
 from handlers.players import get_players_handler
 from handlers.matches import get_matches_handler
+import asyncio
+import os
+from dotenv import load_dotenv
 
 load_dotenv()
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-bot = telebot.TeleBot(BOT_TOKEN)
 
-def register_handlers():
-    bot.register_message_handler(start_handler(bot), commands=['start'])
-    bot.register_message_handler(get_players_handler(bot), commands=['players'])
-    bot.register_message_handler(get_matches_handler(bot), commands=['matches'])
+async def main():
+    bot = Bot(token=BOT_TOKEN)
+    dp = Dispatcher()
 
-register_handlers()
+    # Registrar Handlers usando filtros!
+    dp.message.register(start_handler, Command("start"))
+    dp.message.register(get_players_handler, Command("players"))
+    dp.message.register(get_matches_handler, Command("matches"))
 
-def run_bot():
     print("Bot is running...")
-    bot.infinity_polling()
+    await dp.start_polling(bot)
 
-run_bot()
+if __name__ == "__main__":
+    asyncio.run(main())

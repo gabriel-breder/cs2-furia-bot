@@ -1,4 +1,4 @@
-from telebot.types import Message
+from aiogram import types
 from dotenv import load_dotenv
 import requests
 import os
@@ -16,16 +16,22 @@ def get_players_from_api():
     else:
         print(f"Error: {response.status_code}")
         return None
-    
 
-def get_players_handler(bot):
-    
-    def get_players(message: Message):
-        players = get_players_from_api()
-        
-        response = "\n\n".join(
-            f"Nome: {player['nickname']} \n Instagram: {player['social_media']['instagram']}\n Twitch: {player['social_media']['twitch']}\n"
-            for player in players
-        )
-        bot.send_message(message.chat.id, response)
-    return get_players
+async def get_players_handler(message: types.Message):
+    await message.answer("Carregando lista de jogadores...")
+    players = get_players_from_api()
+
+    if not players:
+        await message.answer("Nenhum jogador encontrado.")
+        return
+
+    if players is None:
+        await message.answer("Erro ao carregar a lista de jogadores.")
+        return
+
+    response = "\n\n".join(
+        f"Nome: {player['nickname']}\nInstagram: {player['social_media']['instagram']}\nTwitch: {player['social_media']['twitch']}"
+        for player in players
+    )
+
+    await message.answer(response)
