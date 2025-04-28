@@ -2,7 +2,8 @@ from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
 from handlers.start import start_handler
 from handlers.players import get_players_handler
-from handlers.matches import get_matches_handler
+from handlers.matches import get_matches_handler, get_next_matches_handler
+from handlers.social import get_medias_handler
 import asyncio
 import os
 from dotenv import load_dotenv
@@ -17,7 +18,9 @@ async def main():
 
     dp.message.register(start_handler, Command("start", "help"))
     dp.message.register(get_players_handler, Command("players"))
-    dp.message.register(get_matches_handler, Command("matches"))
+    dp.message.register(get_matches_handler, Command("resultados"))
+    dp.message.register(get_next_matches_handler, Command("proximas"))
+    dp.message.register(get_medias_handler, Command("social"))
 
     print("Bot is running...")
     await dp.start_polling(bot)

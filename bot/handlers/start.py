@@ -9,7 +9,7 @@ async def start_handler(message: types.Message):
         "Use /resultados para ver os resultados das últimas partidas\n"
         "Use /proximas para ver as próximas partidas\n"
         "Use /noticias para ver as últimas notícias\n"
-        "Use /redes para ver as redes sociais da Furia\n"
+        "Use /social para ver as redes sociais da Furia\n"
     )
 
     await message.answer(response)
