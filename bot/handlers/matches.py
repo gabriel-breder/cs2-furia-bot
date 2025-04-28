@@ -7,9 +7,6 @@ load_dotenv()
 
 API_URL = os.getenv('API_URL')
 
-def replace_dots(text):
-    return text.replace('.', ' ')
-
 def get_results():
     response = requests.get(f"{API_URL}/matches_results/")
     return parse_matches(response)
@@ -44,7 +41,7 @@ async def get_matches_handler(message: types.Message):
         for match in matches['matches']
     )
 
-    await message.answer(response, parse_mode="MarkdownV2")
+    await message.answer(response)
 
 async def get_next_matches_handler(message: types.Message):
     await message.answer("Carregando próximas partidas...")
@@ -65,4 +62,4 @@ async def get_next_matches_handler(message: types.Message):
         for match in matches
     )
 
-    await message.answer(response, parse_mode="MarkdownV2")
+    await message.answer(response)
