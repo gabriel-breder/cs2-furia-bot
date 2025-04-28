@@ -15,8 +15,7 @@ async def main():
     bot = Bot(token=BOT_TOKEN)
     dp = Dispatcher()
 
-    # Registrar Handlers usando filtros!
-    dp.message.register(start_handler, Command("start"))
+    dp.message.register(start_handler, Command("start", "help"))
     dp.message.register(get_players_handler, Command("players"))
     dp.message.register(get_matches_handler, Command("matches"))
 

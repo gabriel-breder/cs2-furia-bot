@@ -30,7 +30,7 @@ async def get_players_handler(message: types.Message):
         return
 
     response = "\n\n".join(
-        f"Nome: {player['nickname']}\nInstagram: {player['social_media']['instagram']}\nTwitch: {player['social_media']['twitch']}"
+        f"{player['nickname']}\nInstagram: {player['social_media']['instagram']}\nTwitch: {player['social_media']['twitch']}"
         for player in players
     )
 

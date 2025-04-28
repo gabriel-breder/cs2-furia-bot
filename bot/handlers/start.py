@@ -6,8 +6,10 @@ async def start_handler(message: types.Message):
     response = (
         f"Olá, {user.first_name}!\n"
         "Use /players para ver a lista de jogadores da Furia\n"
-        "Use /matches para ver os resultados das últimas partidas\n"
-        "Use /help para ver os comandos disponíveis"
+        "Use /resultados para ver os resultados das últimas partidas\n"
+        "Use /proximas para ver as próximas partidas\n"
+        "Use /noticias para ver as últimas notícias\n"
+        "Use /redes para ver as redes sociais da Furia\n"
     )
 
     await message.answer(response)

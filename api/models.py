@@ -23,3 +23,7 @@ class Match(models.Model):
     teamA_score = models.IntegerField()
     teamB_score = models.IntegerField()
     match_details = models.URLField(blank=True, null=True)
+
+class SocialMedia(models.Model):
+    name = models.CharField(max_length=100)
+    link = models.URLField()
