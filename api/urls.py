@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import player, team, match, social_media
+from .views import player, team, match, social_media, news
 
 urlpatterns = [
     path('players/', player.get_players, name='get_players'),
@@ -12,4 +12,7 @@ urlpatterns = [
     path('medias/', social_media.get_medias, name='get_medias'),
     path('medias/add/', social_media.add_media, name='add_media'),
     path('medias/remove/<int:media_id>/', social_media.remove_media, name='remove_media'),
+    path('news/', news.get_news, name='get_news'),
+    path('news/add/', news.add_news, name='add_news'),
+    path('news/remove/<int:news_id>/', news.remove_news, name='remove_news'),
 ] 
