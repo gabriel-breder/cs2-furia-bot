@@ -16,7 +16,26 @@ O bot permite:
 
 ## Como Rodar o Projeto
 
-### 1. Criar as Migrações do Banco de Dados
+### 1. Instalar as dependências
+
+Instale todas as dependências do projeto utilizando o arquivo requirements.txt:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Configurar variáveis de ambiente
+
+Crie um arquivo .env na raiz do projeto (ou exporte as variáveis diretamente no terminal) com as seguintes configurações:
+
+```bash
+export BOT_TOKEN='YOUR-BOT-TOKEN'
+export API_URL='http://localhost:8000/api'
+```
+
+> ⚠️ Por questões de segurança, o arquivo .env **não está incluído no repositório**, mas foi enviado separadamente por e-mail.
+
+### 3. Criar as Migrações do Banco de Dados
 
 Sempre que alterar ou criar modelos no Django, siga o fluxo:
 
@@ -33,7 +52,7 @@ Sempre que alterar ou criar modelos no Django, siga o fluxo:
 
 ---
 
-### 2. Iniciar o servidor
+### 4. Iniciar o servidor
 
 O servidor será responsável por responder às solicitações do bot.
 
@@ -43,7 +62,7 @@ python manage.py runserver
 
 > ⚠️ O servidor deve ser iniciado em uma instância separada do terminal.
 
-### 3. Iniciar o bot
+### 5. Iniciar o bot
 
 O bot fará as requisições para o servidor.
 
@@ -52,6 +71,16 @@ python bot/main.py
 ```
 
 > ⚠️ O bot deve ser iniciado em uma outra instância do terminal, diferente da do servidor.
+
+### 6. Acessar o Bot
+
+Você pode acessar o bot de diferentes formas:
+
+- Clicando neste [link](https://web.telegram.org/k/#@cs2_furia_bot).
+
+- Copiando e colando o seguinte URL no navegador: https://web.telegram.org/k/#@cs2_furia_bot.
+
+- Pesquisando diretamente no Telegram por: @cs2_furia_bot.
 
 ---
 

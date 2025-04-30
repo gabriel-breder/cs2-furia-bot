@@ -1,0 +1,96 @@
+[
+  {
+    "model": "api.team",
+    "pk": 1,
+    "fields": {
+      "name": "Furia"
+    }
+  },
+  {
+    "model": "api.player",
+    "pk": 1,
+    "fields": {
+      "name": "Yuri Boian",
+      "nickname": "yuurih",
+      "team": 1,
+      "instagram": "https://www.instagram.com/yuurihfps/",
+      "twitch": "https://www.twitch.tv/yuurih"
+    }
+  },
+  {
+    "model": "api.player",
+    "pk": 2,
+    "fields": {
+      "name": "Kaike Cerato",
+      "nickname": "KSCERATO",
+      "team": 1,
+      "instagram": "https://www.instagram.com/kscerato/"
+    }
+  },
+  {
+    "model": "api.player",
+    "pk": 3,
+    "fields": {
+      "name": "Gabriel Toledo",
+      "nickname": "FalleN",
+      "team": 1,
+      "instagram": "https://www.instagram.com/falleN/",
+      "twitch": "https://www.twitch.tv/gafallen"
+    }
+  },
+  {
+    "model": "api.player",
+    "pk": 4,
+    "fields": {
+      "name": "Danil Golubenko",
+      "nickname": "molodoy",
+      "team": 1,
+      "instagram": "https://www.instagram.com/danil.molodoy_/"
+    }
+  },
+  {
+    "model": "api.player",
+    "pk": 5,
+    "fields": {
+      "name": "Mareks Gaļinskis",
+      "nickname": "YEKINDAR",
+      "team": 1,
+      "instagram": "https://www.instagram.com/yek1ndar/",
+      "twitch": "https://www.twitch.tv/yekindar"
+    }
+  },
+  {
+    "model": "api.news",
+    "pk": 1,
+    "fields": {
+      "title": "CEO da FURIA sobre contratação de YEKINDAR: 'Nem todas as decisões são óbvias'",
+      "link": "https://draft5.gg/noticia/ceo-da-furia-sobre-contratacao-de-yekindar-nem-todas-as-decisoes-sao-obvias",
+      "date": "2025-04-23T10:00:00Z"
+    }
+  },
+  {
+    "model": "api.news",
+    "pk": 2,
+    "fields": {
+      "title": "FalleN analisa nova FURIA e fala sobre troca de função: 'Ainda posso atuar em alto nível'",
+      "link": "https://draft5.gg/noticia/fallen-analisa-nova-furia-e-fala-sobre-troca-de-funcao-ainda-posso-atuar-em-alto-nivel",
+      "date": "2025-04-26T15:00:00Z"
+    }
+  },
+  {
+    "model": "api.socialmedia",
+    "pk": 1,
+    "fields": {
+      "name": "Instagram Oficial",
+      "link": "https://instagram.com/furiagg"
+    }
+  },
+  {
+    "model": "api.socialmedia",
+    "pk": 2,
+    "fields": {
+      "name": "Twitch Oficial",
+      "link": "https://twitch.tv/furiatv"
+    }
+  }
+]
