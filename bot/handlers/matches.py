@@ -34,7 +34,7 @@ async def get_matches_handler(message: types.Message):
     if matches is None:
         await message.answer("Erro ao carregar os resultados.")
         return
-
+    
     response = "\n\n".join(
         f"{match['teamA']} {match['teamA_score']} vs {match['teamB_score']} {match['teamB']}\n"
         f"{match['tournament']}"
@@ -52,14 +52,14 @@ async def get_next_matches_handler(message: types.Message):
         await message.answer("Nenhuma partida encontrada.")
         return
 
-    if matches is None:
+    if matches['matches'] is None:
         await message.answer("Erro ao carregar as próximas partidas.")
         return
 
     response = "\n\n".join(
         f"{match['teamA']} vs {match['teamB']}\n"
         f"{match['tournament']}"
-        for match in matches
+        for match in matches['matches']
     )
 
     await message.answer(response)
