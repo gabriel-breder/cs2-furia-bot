@@ -33,36 +33,19 @@ export BOT_TOKEN='YOUR-BOT-TOKEN'
 export API_URL='http://localhost:8000/api'
 ```
 
-> ⚠️ Por questões de segurança, o arquivo .env **não está incluído no repositório**, mas foi enviado separadamente por e-mail.
+> ⚠️ Por questões de segurança, o arquivo .env **não está incluído no repositório**, mas o bot token utilizado no bot (@cs2-furia-bot) foi enviado junto ao form.
 
-### 3. Criar as Migrações do Banco de Dados
-
-Sempre que alterar ou criar modelos no Django, siga o fluxo:
-
-1. **Criar migração:**
-
-   ```bash
-   python manage.py makemigrations
-   ```
-
-2. **Aplicar migração:**
-   ```bash
-   python manage.py migrate
-   ```
-
----
-
-### 4. Iniciar o servidor
+### 3. Iniciar o servidor
 
 O servidor será responsável por responder às solicitações do bot.
 
 ```bash
-python manage.py runserver
+python manage.py run_api
 ```
 
 > ⚠️ O servidor deve ser iniciado em uma instância separada do terminal.
 
-### 5. Iniciar o bot
+### 4. Iniciar o bot
 
 O bot fará as requisições para o servidor.
 
@@ -72,7 +55,7 @@ python bot/main.py
 
 > ⚠️ O bot deve ser iniciado em uma outra instância do terminal, diferente da do servidor.
 
-### 6. Acessar o Bot
+### 5. Acessar o Bot
 
 Você pode acessar o bot de diferentes formas:
 
@@ -86,12 +69,10 @@ Você pode acessar o bot de diferentes formas:
 
 ## Comandos Resumo
 
-| Ação              | Comando                           |
-| ----------------- | --------------------------------- |
-| Criar migrações   | `python manage.py makemigrations` |
-| Aplicar migrações | `python manage.py migrate`        |
-| Iniciar servidor  | `python manage.py runserver`      |
-| Iniciar bot       | `python bot/main.py`              |
+| Ação             | Comando                    |
+| ---------------- | -------------------------- |
+| Iniciar servidor | `python manage.py run_api` |
+| Iniciar bot      | `python bot/main.py`       |
 
 ---
 
