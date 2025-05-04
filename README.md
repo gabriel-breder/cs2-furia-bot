@@ -37,7 +37,7 @@ export API_URL='http://localhost:8000/api'
 
 ### 3. Iniciar o servidor
 
-O servidor será responsável por responder às solicitações do bot.
+O servidor será responsável por responder às solicitações do bot. O script abaixo já inicia todas as migrações, popula o banco de dados e inicia o servidor.
 
 ```bash
 python manage.py run_api
